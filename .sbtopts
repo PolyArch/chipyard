@@ -1,2 +1,2 @@
 -Dsbt.sourcemode=true
--Dsbt.workspace=$PWD/tools
+-Dsbt.workspace=/home/sihao/repo/chipyard/tools
