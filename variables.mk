@@ -102,6 +102,18 @@ ifeq ($(SUB_PROJECT),icenet)
 	TB                ?= TestDriver
 	TOP               ?= UnitTestSuite
 endif
+# For Domain-Specific Accelerator developers
+ifeq ($(SUB_PROJECT),dsagen)
+	SBT_PROJECT       ?= chipyard
+	MODEL             ?= TestHarness
+	VLOG_MODEL        ?= TestHarness
+	MODEL_PACKAGE     ?= freechips.rocketchip.system
+	CONFIG            ?= DsagenRocketConfig
+	CONFIG_PACKAGE    ?= dsagen
+	GENERATOR_PACKAGE ?= chipyard
+	TB                ?= TestDriver
+	TOP               ?= ChipTop
+endif
 
 #########################################################################################
 # path to rocket-chip and testchipip
