@@ -54,7 +54,7 @@ include $(base_dir)/common.mk
 #########################################################################################
 # vcs binary and arguments
 #########################################################################################
-VCS = vcs -full64
+VCS = vcs -full64 -LDFLAGS -Wl,--no-as-needed # Ubuntu-only
 
 VCS_OPTS = $(VCS_CC_OPTS) $(VCS_NONCC_OPTS) $(PREPROC_DEFINES)
 
