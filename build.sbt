@@ -236,27 +236,15 @@ lazy val gemmini = (project in file("generators/gemmini"))
   .settings(libraryDependencies ++= chiselTestersLibDeps.value)
   .settings(commonSettings)
 
+/* ---------------- DSAGen2 --------------------*/
 val dsagenChipDir = file("generators/dsagen2")
-
-lazy val xiangshan_hardfloat = (project in dsagenChipDir / "hardfloat")
-  .sourceDependency(chiselRef, chiselLib)
-  .settings(addCompilerPlugin(chiselPluginLib))
-  .settings(libraryDependencies ++= chiselLibDeps.value)
-  .dependsOn(midasTargetUtils)
-  .settings(commonSettings)
-  .settings(
-    libraryDependencies ++= Seq(
-      "org.scala-lang" % "scala-reflect" % scalaVersion.value,
-      "org.json4s" %% "json4s-jackson" % "3.6.1",
-      "org.scalatest" %% "scalatest" % "3.2.0" % "test"
-    )
-  )
-lazy val dsagen2 = (project in file("generators/dsagen2"))
+lazy val dsagen2 = (project in dsagenChipDir)
   .sourceDependency(testchipip, testchipipLib)
-  .dependsOn(rocketchip, chisel_testers, xiangshan_hardfloat)
+  .dependsOn(rocketchip, chisel_testers)
   .settings(libraryDependencies ++= rocketLibDeps.value)
   .settings(libraryDependencies ++= chiselTestersLibDeps.value)
   .settings(commonSettings)
+/* ---------------- DSAGen2 --------------------*/
 
 lazy val nvdla = (project in file("generators/nvdla"))
   .dependsOn(rocketchip)
