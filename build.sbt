@@ -185,7 +185,7 @@ lazy val chipyard = (project in file("generators/chipyard"))
   .sourceDependency(testchipip, testchipipLib)
   .dependsOn(rocketchip, boom, hwacha, sifive_blocks, sifive_cache, iocell,
     sha3, // On separate line to allow for cleaner tutorial-setup patches
-    dsptools, `rocket-dsp-utils`,
+    dsptools, `rocket-dsp-utils`,dsagen2,
     gemmini, icenet, tracegen, cva6, nvdla, sodor)
   .settings(libraryDependencies ++= rocketLibDeps.value)
   .settings(commonSettings)
@@ -232,6 +232,28 @@ lazy val sha3 = (project in file("generators/sha3"))
 lazy val gemmini = (project in file("generators/gemmini"))
   .sourceDependency(testchipip, testchipipLib)
   .dependsOn(rocketchip, chisel_testers)
+  .settings(libraryDependencies ++= rocketLibDeps.value)
+  .settings(libraryDependencies ++= chiselTestersLibDeps.value)
+  .settings(commonSettings)
+
+val dsagenChipDir = file("generators/dsagen2")
+
+lazy val xiangshan_hardfloat = (project in dsagenChipDir / "hardfloat")
+  .sourceDependency(chiselRef, chiselLib)
+  .settings(addCompilerPlugin(chiselPluginLib))
+  .settings(libraryDependencies ++= chiselLibDeps.value)
+  .dependsOn(midasTargetUtils)
+  .settings(commonSettings)
+  .settings(
+    libraryDependencies ++= Seq(
+      "org.scala-lang" % "scala-reflect" % scalaVersion.value,
+      "org.json4s" %% "json4s-jackson" % "3.6.1",
+      "org.scalatest" %% "scalatest" % "3.2.0" % "test"
+    )
+  )
+lazy val dsagen2 = (project in file("generators/dsagen2"))
+  .sourceDependency(testchipip, testchipipLib)
+  .dependsOn(rocketchip, chisel_testers, xiangshan_hardfloat)
   .settings(libraryDependencies ++= rocketLibDeps.value)
   .settings(libraryDependencies ++= chiselTestersLibDeps.value)
   .settings(commonSettings)
