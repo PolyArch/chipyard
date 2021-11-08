@@ -140,9 +140,6 @@
 [submodule "tools/rocket-dsp-utils"]
 	path = tools/rocket-dsp-utils
 	url = https://github.com/ucb-bar/rocket-dsp-utils
-[submodule "generators/dsagen"]
-	path = generators/dsagen
-	url = https://github.com/SihaoLiu/dsagen.git
 [submodule "generators/dsagen2"]
 	path = generators/dsagen2
 	url = https://github.com/SihaoLiu/dsagen2.git
