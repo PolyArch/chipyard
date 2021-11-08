@@ -36,7 +36,7 @@ class GemminiRocketConfig extends Config(
 
 /* ---------------- DSAGen2 --------------------*/
 class DSAGen2RocketConfig extends Config(
-  new dsagen2.top.dsa.WithDSAGenHelloWorld ++                            // use DSAGen2 as Stream-Specialization accelerator
+  new dsagen2.top.example.WithDSAGenHelloWorld ++                            // use DSAGen2 as Stream-Specialization accelerator
     new freechips.rocketchip.subsystem.WithNBigCores(1) ++
     new chipyard.config.AbstractConfig)
 /* ---------------- DSAGen2 --------------------*/
