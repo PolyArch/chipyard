@@ -44,7 +44,7 @@ class DSAGen2ADGRocketConfig extends Config(
 
 // Manually designed DSAGen2 as Stream Specialized Accelerator
 class DSAGen2RocketConfig extends Config(
-  new dsagen2.top.example.WithDSAGenHelloWorld ++
+  new dsagen2.top.config.WithDSAGenHelloWorld ++
     new freechips.rocketchip.subsystem.WithNBigCores(1) ++
     new chipyard.config.AbstractConfig)
 /* ---------------- DSAGen2 --------------------*/
