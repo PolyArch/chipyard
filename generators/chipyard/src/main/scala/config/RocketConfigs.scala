@@ -35,8 +35,16 @@ class GemminiRocketConfig extends Config(
 // DOC include end: GemminiRocketConfig
 
 /* ---------------- DSAGen2 --------------------*/
+
+class DSAGen2ADGRocketConfig extends Config(
+  // Use ADG described DSAGen2 as Stream Specialized Accelerator
+  new dsagen2.top.config.WithDSAGenFromADG ++
+    new freechips.rocketchip.subsystem.WithNBigCores(1) ++
+    new chipyard.config.AbstractConfig)
+
 class DSAGen2RocketConfig extends Config(
-  new dsagen2.top.example.WithDSAGenHelloWorld ++                            // use DSAGen2 as Stream-Specialization accelerator
+  // Manually designed DSAGen2 as Stream Specialized Accelerator
+  new dsagen2.top.example.WithDSAGenHelloWorld ++
     new freechips.rocketchip.subsystem.WithNBigCores(1) ++
     new chipyard.config.AbstractConfig)
 /* ---------------- DSAGen2 --------------------*/
