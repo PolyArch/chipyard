@@ -74,7 +74,8 @@ $(sim): $(sim_vsrcs) $(sim_common_files) $(dramsim_lib) $(EXTRA_SIM_REQS)
 $(sim_debug): $(sim_vsrcs) $(sim_common_files) $(dramsim_lib) $(EXTRA_SIM_REQS)
 	rm -rf $(model_dir_debug)
 	$(VCS) $(VCS_OPTS) $(EXTRA_SIM_SOURCES) -o $@ -Mdir=$(model_dir_debug)  \
-	+define+DEBUG
+		-kdb +define+DEBUG +define+FSDB=1 \
+		-P ${VERDI_HOME}/share/PLI/VCS/LINUX64/novas.tab ${VERDI_HOME}/share/PLI/VCS/LINUX64/pli.a
 
 #########################################################################################
 # create a vcs vpd rule
