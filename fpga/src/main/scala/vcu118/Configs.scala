@@ -58,13 +58,14 @@ class WithVCU118Tweaks extends Config(
   new WithFPGAFrequency(100) // default 100MHz freq
 )
 
-/* ---------- DSAGen2 on FPGA VCU 118 ---------- */
+/* ---------- DSAGen2 on VCU 118 Start ---------- */
+
 class DSAGen2RocketVCU118Config extends Config(
-  new WithFPGAFrequency(65) ++
+  new WithFPGAFrequency(95) ++
     new WithVCU118Tweaks ++
     new chipyard.DSAGen2RocketConfig
 )
-/* ---------- DSAGen2 on FPGA VCU 118 ---------- */
+/* ---------- DSAGen2 on VCU 118 End ---------- */
 
 class RocketVCU118Config extends Config(
   new WithVCU118Tweaks ++

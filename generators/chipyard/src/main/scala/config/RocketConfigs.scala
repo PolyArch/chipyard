@@ -34,7 +34,7 @@ class GemminiRocketConfig extends Config(
   new chipyard.config.AbstractConfig)
 // DOC include end: GemminiRocketConfig
 
-/* ---------------- DSAGen2 --------------------*/
+/* ---------------- DSAGen2 Configuration Start --------------------*/
 
 // Use ADG described DSAGen2 as Stream Specialized Accelerator
 class DSAGen2ADGRocketConfig extends Config(
@@ -44,10 +44,11 @@ class DSAGen2ADGRocketConfig extends Config(
 
 // Manually designed DSAGen2 as Stream Specialized Accelerator
 class DSAGen2RocketConfig extends Config(
-  new dsagen2.top.config.WithDSAGenHelloWorld ++
+  new dsagen2.top.config.WithDSAGen2Dev ++
     new freechips.rocketchip.subsystem.WithNBigCores(1) ++
     new chipyard.config.AbstractConfig)
-/* ---------------- DSAGen2 --------------------*/
+
+/* ---------------- DSAGen2 Configuration End --------------------*/
 
 class FPGemminiRocketConfig extends Config(
   new gemmini.GemminiFP32DefaultConfig ++                         // use FP32Gemmini systolic array GEMM accelerator
