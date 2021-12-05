@@ -60,11 +60,18 @@ class WithVCU118Tweaks extends Config(
 
 /* ---------- DSAGen2 on VCU 118 Start ---------- */
 
-class DSAGen2RocketVCU118Config extends Config(
+class DevDSARocketVCU118Config extends Config(
   new WithFPGAFrequency(95) ++
     new WithVCU118Tweaks ++
-    new chipyard.DSAGen2RocketConfig
+    new chipyard.DevDSARocketConfig
 )
+
+class MeshDSARocketVCU118Config extends Config(
+  new WithFPGAFrequency(50) ++
+    new WithVCU118Tweaks ++
+    new chipyard.MeshDSARocketConfig
+)
+
 /* ---------- DSAGen2 on VCU 118 End ---------- */
 
 class RocketVCU118Config extends Config(

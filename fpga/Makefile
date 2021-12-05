@@ -30,12 +30,12 @@ ifeq ($(SUB_PROJECT),vcu118)
 	FPGA_BRAND        ?= xilinx
 endif
 
-ifeq ($(SUB_PROJECT),vcu118dsagen2)
+ifeq ($(SUB_PROJECT),vcu118dsa)
         SBT_PROJECT       ?= fpga_platforms
         MODEL             ?= VCU118FPGATestHarness
         VLOG_MODEL        ?= VCU118FPGATestHarness
         MODEL_PACKAGE     ?= chipyard.fpga.vcu118
-        CONFIG            ?= DSAGen2RocketVCU118Config
+        CONFIG            ?= MeshDSARocketVCU118Config
         CONFIG_PACKAGE    ?= chipyard.fpga.vcu118
         GENERATOR_PACKAGE ?= chipyard
         TB                ?= none # unused

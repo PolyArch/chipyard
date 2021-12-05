@@ -1,7 +1,7 @@
 package chipyard
 
-import freechips.rocketchip.config.{Config}
-import freechips.rocketchip.diplomacy.{AsynchronousCrossing}
+import freechips.rocketchip.config.Config
+import freechips.rocketchip.diplomacy.AsynchronousCrossing
 
 // --------------
 // Rocket Configs
@@ -36,15 +36,23 @@ class GemminiRocketConfig extends Config(
 
 /* ---------------- DSAGen2 Configuration Start --------------------*/
 
-// Use ADG described DSAGen2 as Stream Specialized Accelerator
-class DSAGen2ADGRocketConfig extends Config(
-  new dsagen2.top.config.WithDSAGenFromADG ++
+// DSA Generated from ADG
+class DSAGenRocketConfig extends Config(
+  new dsagen2.top.config.WithDSAGenFromADG(
+    "/home/sihao/repo/chipyard/generators/dsagen2/vsrc/adg/DSAGen2Dev.PE2-MaxI64-AddI64-MulI64-FAddD64-FMulD64-Copy-MinI64.SW5.DMA1.IVP2.OVP2.20211205-091014.json"
+  ) ++
     new freechips.rocketchip.subsystem.WithNBigCores(1) ++
     new chipyard.config.AbstractConfig)
 
-// Manually designed DSAGen2 as Stream Specialized Accelerator
-class DSAGen2RocketConfig extends Config(
-  new dsagen2.top.config.WithDSAGen2Dev ++
+// DSA under development
+class DevDSARocketConfig extends Config(
+  new dsagen2.top.config.WithDevDSA ++
+    new freechips.rocketchip.subsystem.WithNBigCores(1) ++
+    new chipyard.config.AbstractConfig)
+
+// Mesh DSA
+class MeshDSARocketConfig extends Config(
+  new dsagen2.top.config.WithMeshDSA ++
     new freechips.rocketchip.subsystem.WithNBigCores(1) ++
     new chipyard.config.AbstractConfig)
 
