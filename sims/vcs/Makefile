@@ -73,7 +73,8 @@ $(sim): $(sim_vsrcs) $(sim_common_files) $(dramsim_lib) $(EXTRA_SIM_REQS)
 
 $(sim_debug): $(sim_vsrcs) $(sim_common_files) $(dramsim_lib) $(EXTRA_SIM_REQS)
 	rm -rf $(model_dir_debug)
-	$(VCS) $(VCS_OPTS) $(EXTRA_SIM_SOURCES) -o $@ -Mdir=$(model_dir_debug) +define+DEBUG
+	$(VCS) $(VCS_OPTS) $(EXTRA_SIM_SOURCES) -o $@ -Mdir=$(model_dir_debug) \
+		+define+DEBUG -debug_access+all -kdb -lca
 
 #########################################################################################
 # create a vcs vpd rule
