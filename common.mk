@@ -228,7 +228,7 @@ $(output_dir)/%.out: $(output_dir)/% $(sim)
 #########################################################################################
 # include build/project specific makefrags made from the generator
 #########################################################################################
-ifneq ($(filter run% %.run %.out %.vpd %.vcd,$(MAKECMDGOALS)),)
+ifneq ($(filter run% %.run %.out %.vpd %.vcd %.fsdb,$(MAKECMDGOALS)),)
 -include $(build_dir)/$(long_name).d
 endif
 
