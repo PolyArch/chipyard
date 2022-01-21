@@ -123,6 +123,8 @@ class GPIORocketConfig extends Config(
 // DOC include end: GPIORocketConfig
 
 class QuadRocketConfig extends Config(
+  new freechips.rocketchip.subsystem.WithNMemoryChannels(4) ++
+  new freechips.rocketchip.subsystem.WithNBanks(4) ++
   new freechips.rocketchip.subsystem.WithNBigCores(4) ++    // quad-core (4 RocketTiles)
   new chipyard.config.AbstractConfig)
 
@@ -244,6 +246,7 @@ class LBWIFRocketConfig extends Config(
 
 // DOC include start: MulticlockAXIOverSerialConfig
 class MulticlockAXIOverSerialConfig extends Config(
+  new freechips.rocketchip.subsystem.WithNBanks(2) ++
   new chipyard.config.WithSystemBusFrequencyAsDefault ++
   new chipyard.config.WithSystemBusFrequency(250) ++
   new chipyard.config.WithPeripheryBusFrequency(250) ++
