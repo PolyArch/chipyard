@@ -143,6 +143,3 @@
 [submodule "generators/dsagen2"]
 	path = generators/dsagen2
 	url = https://github.com/PolyArch/dsagen2.git
-[submodule "toolchains/riscv-tools/dsa-riscv-ext"]
-	path = toolchains/riscv-tools/dsa-riscv-ext
-	url = https://github.com/PolyArch/dsa-riscv-ext.git
