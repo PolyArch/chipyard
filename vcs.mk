@@ -4,6 +4,13 @@ else
 WAVEFORM_FLAG=+vcdplusfile=$(sim_out_name).vpd
 endif
 
+NPROCS:=1
+OS:=$(shell uname -s)
+
+ifeq ($(OS), Linux)
+  NPROCS := $(shell grep -c ^processor /proc/cpuinfo)
+endif
+
 # If ntb_random_seed unspecified, vcs uses 1 as constant seed.
 # Set ntb_random_seed_automatic to actually get a random seed
 ifdef RANDOM_SEED

@@ -54,7 +54,7 @@ include $(base_dir)/common.mk
 #########################################################################################
 # vcs binary and arguments
 #########################################################################################
-VCS = vcs -fgp -full64
+VCS = vcs -j$(NPROCS) -fgp -full64
 
 VCS_OPTS = $(VCS_CC_OPTS) $(VCS_NONCC_OPTS) $(PREPROC_DEFINES)
 
