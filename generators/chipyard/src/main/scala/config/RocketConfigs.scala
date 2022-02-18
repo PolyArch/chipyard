@@ -38,9 +38,7 @@ class GemminiRocketConfig extends Config(
 
 // DSA Generated from ADG
 class DSAGenRocketConfig extends Config(
-  new dsagen2.top.config.WithDSAGenFromADG(
-    "/home/sihao/repo/chipyard/generators/dsagen2/vsrc/adg/DSAGen2Dev.PE2-MaxI64-AddI64-MulI64-FAddD64-FMulD64-Copy-MinI64.SW5.DMA1.IVP2.OVP2.20211205-091014.json"
-  ) ++
+  new dsagen2.top.config.WithDSAGenFromADG() ++
     new freechips.rocketchip.subsystem.WithNBigCores(1) ++
     new chipyard.config.AbstractConfig)
 

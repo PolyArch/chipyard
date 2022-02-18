@@ -43,3 +43,9 @@ class DromajoBoomConfig extends Config(
   new chipyard.config.WithTraceIO ++                             // enable the traceio
   new boom.common.WithNSmallBooms(1) ++
   new chipyard.config.AbstractConfig)
+
+// BOOM + Mesh DSA
+class MeshDSABoomConfig extends Config(
+  new dsagen2.top.config.WithMeshDSA ++
+    new boom.common.WithNLargeBooms(1) ++                          // large boom config
+    new chipyard.config.AbstractConfig)
