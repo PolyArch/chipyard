@@ -67,7 +67,7 @@ class DevDSARocketVCU118Config extends Config(
 )
 
 class MeshDSARocketVCU118Config extends Config(
-  new WithFPGAFrequency(50) ++
+  new WithFPGAFrequency(75) ++
     new WithVCU118Tweaks ++
     new chipyard.MeshDSARocketConfig
 )
