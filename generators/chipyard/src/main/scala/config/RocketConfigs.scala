@@ -39,19 +39,25 @@ class GemminiRocketConfig extends Config(
 // DSA Generated from ADG
 class DSAGenRocketConfig extends Config(
   new dsagen2.top.config.WithDSAGenFromADG() ++
-    new freechips.rocketchip.subsystem.WithNBigCores(1) ++
+    new freechips.rocketchip.subsystem.WithNSmallCores(1) ++
     new chipyard.config.AbstractConfig)
 
 // DSA under development
 class DevDSARocketConfig extends Config(
   new dsagen2.top.config.WithDevDSA ++
-    new freechips.rocketchip.subsystem.WithNBigCores(1) ++
+    new freechips.rocketchip.subsystem.WithNSmallCores(1) ++
     new chipyard.config.AbstractConfig)
 
 // Mesh DSA
 class MeshDSARocketConfig extends Config(
   new dsagen2.top.config.WithMeshDSA ++
-    new freechips.rocketchip.subsystem.WithNBigCores(1) ++
+    new freechips.rocketchip.subsystem.WithNSmallCores(1) ++
+    new chipyard.config.AbstractConfig)
+
+// Dual Rocket+MeshDSA SoC
+class DualMeshDSARocketConfig extends Config(
+  new dsagen2.top.config.WithMeshDSA ++
+    new freechips.rocketchip.subsystem.WithNSmallCores(2) ++
     new chipyard.config.AbstractConfig)
 
 /* ---------------- DSAGen2 Configuration End --------------------*/
