@@ -70,6 +70,14 @@ class TriMeshDSARocketConfig extends Config(
     new freechips.rocketchip.subsystem.WithNSmallCores(3) ++
     new chipyard.config.AbstractConfig)
 
+// Quad Rocket-MeshDSA SoC
+class QuadMeshDSARocketConfig extends Config(
+  new freechips.rocketchip.subsystem.WithNMemoryChannels(4) ++
+    new freechips.rocketchip.subsystem.WithNBanks(4) ++
+    new dsagen2.top.config.WithMeshDSA ++
+    new freechips.rocketchip.subsystem.WithNSmallCores(4) ++
+    new chipyard.config.AbstractConfig)
+
 /* ---------------- DSAGen2 Configuration End --------------------*/
 
 class FPGemminiRocketConfig extends Config(
