@@ -80,6 +80,13 @@ class DualMeshDSARocketVCU118Config extends Config(
     new chipyard.DualMeshDSARocketConfig
 )
 
+class TriMeshDSARocketVCU118Config extends Config(
+  new WithFPGAFrequency(100) ++
+    new WithVCU118Tweaks ++
+    new dsagen2.comp.impl.ip.WithDSAOverlay ++
+    new chipyard.TriMeshDSARocketConfig
+)
+
 /* ---------- DSAGen2 on VCU 118 End ---------- */
 
 class RocketVCU118Config extends Config(
