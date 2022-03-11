@@ -67,28 +67,28 @@ class DevDSARocketVCU118Config extends Config(
 )
 
 class MeshDSARocketVCU118Config extends Config(
-  new WithFPGAFrequency(100) ++
+  new WithFPGAFrequency(97) ++
     new WithVCU118Tweaks ++
     new dsagen2.comp.impl.ip.WithDSAOverlay ++
     new chipyard.MeshDSARocketConfig
 )
 
 class DualMeshDSARocketVCU118Config extends Config(
-  new WithFPGAFrequency(100) ++
+  new WithFPGAFrequency(95) ++
     new WithVCU118Tweaks ++
     new dsagen2.comp.impl.ip.WithDSAOverlay ++
     new chipyard.DualMeshDSARocketConfig
 )
 
 class TriMeshDSARocketVCU118Config extends Config(
-  new WithFPGAFrequency(100) ++
+  new WithFPGAFrequency(93) ++
     new WithVCU118Tweaks ++
     new dsagen2.comp.impl.ip.WithDSAOverlay ++
     new chipyard.TriMeshDSARocketConfig
 )
 
 class QuadMeshDSARocketVCU118Config extends Config(
-  new WithFPGAFrequency(100) ++
+  new WithFPGAFrequency(92) ++
     new WithVCU118Tweaks ++
     new dsagen2.comp.impl.ip.WithDSAOverlay ++
     new chipyard.QuadMeshDSARocketConfig
