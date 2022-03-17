@@ -85,7 +85,7 @@ echo "PATH=\$__DIR/software/firemarshal:\$PATH" >> env.sh
 echo "-Dsbt.sourcemode=true" > .sbtopts
 echo "-Dsbt.workspace=${SS}/chipyard/tools" >> .sbtopts
 
-cd $CHIPYARD_DIR/generators/rocket-chipyard
+cd $CHIPYARD_DIR/generators/rocket-chip
 echo "-Dsbt.sourcemode=true" > .sbtopts
 echo "-Dsbt.workspace=${SS}/chipyard/generators/rocket-chip" >> .sbtopts
 
