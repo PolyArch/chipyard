@@ -23,3 +23,6 @@ env-esp-tools.sh
 .bsp/
 .sbtopts
 .metals/*
+test_run_dir
+ucli.key
+vsrc
