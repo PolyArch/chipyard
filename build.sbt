@@ -236,15 +236,12 @@ lazy val gemmini = (project in file("generators/gemmini"))
   .settings(libraryDependencies ++= chiselTestersLibDeps.value)
   .settings(commonSettings)
 
-/* ---------------- DSAGen2 --------------------*/
-val dsagenChipDir = file("generators/dsagen2")
-lazy val dsagen2 = (project in dsagenChipDir)
+lazy val dsagen2 = (project in file("generators/dsagen2"))
   .sourceDependency(testchipip, testchipipLib)
   .dependsOn(rocketchip, chisel_testers)
   .settings(libraryDependencies ++= rocketLibDeps.value)
   .settings(libraryDependencies ++= chiselTestersLibDeps.value)
   .settings(commonSettings)
-/* ---------------- DSAGen2 --------------------*/
 
 lazy val nvdla = (project in file("generators/nvdla"))
   .dependsOn(rocketchip)
