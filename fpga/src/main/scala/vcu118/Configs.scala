@@ -61,39 +61,41 @@ class WithVCU118Tweaks extends Config(
 /* ---------- DSAGen2 on VCU 118 Start ---------- */
 
 class DevDSARocketVCU118Config extends Config(
-  new WithFPGAFrequency(100) ++
-    new WithVCU118Tweaks ++
+  new WithVCU118Tweaks ++
+    new dsagen2.comp.impl.ip.WithDSAOverlay ++
     new chipyard.DevDSARocketConfig
 )
 
 class MeshDSARocketVCU118Config extends Config(
-  new WithFPGAFrequency(97) ++
-    new WithVCU118Tweaks ++
+  new WithVCU118Tweaks ++
     new dsagen2.comp.impl.ip.WithDSAOverlay ++
     new chipyard.MeshDSARocketConfig
 )
 
 class DualMeshDSARocketVCU118Config extends Config(
-  new WithFPGAFrequency(94) ++
-    new WithVCU118Tweaks ++
+  new WithVCU118Tweaks ++
     new dsagen2.comp.impl.ip.WithDSAOverlay ++
     new chipyard.DualMeshDSARocketConfig
 )
 
 class TriMeshDSARocketVCU118Config extends Config(
-  new WithFPGAFrequency(92) ++
-    new WithVCU118Tweaks ++
+  new WithVCU118Tweaks ++
     new dsagen2.comp.impl.ip.WithDSAOverlay ++
     new chipyard.TriMeshDSARocketConfig
 )
 
 class QuadMeshDSARocketVCU118Config extends Config(
-  new WithFPGAFrequency(90) ++
-    new WithVCU118Tweaks ++
+  new WithVCU118Tweaks ++
     new dsagen2.comp.impl.ip.WithDSAOverlay ++
     new chipyard.QuadMeshDSARocketConfig
 )
 
+class MeshDSARocketVCU118Config100MHz extends Config(new WithFPGAFreq100MHz ++ new MeshDSARocketVCU118Config)
+class MeshDSARocketVCU118Config75MHz extends Config(new WithFPGAFreq75MHz ++ new MeshDSARocketVCU118Config)
+class DualDSARocketVCU118Config100MHz extends Config(new WithFPGAFreq100MHz ++ new DualMeshDSARocketVCU118Config)
+class DualDSARocketVCU118Config75MHz extends Config(new WithFPGAFreq75MHz ++ new DualMeshDSARocketVCU118Config)
+class QuadMeshDSARocketVCU118Config100MHz extends Config(new WithFPGAFreq100MHz ++ new QuadMeshDSARocketVCU118Config)
+class QuadMeshDSARocketVCU118Config75MHz extends Config(new WithFPGAFreq75MHz ++ new QuadMeshDSARocketVCU118Config)
 
 /* ---------- DSAGen2 on VCU 118 End ---------- */
 
