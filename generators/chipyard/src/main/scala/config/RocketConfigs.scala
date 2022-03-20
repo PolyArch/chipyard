@@ -59,7 +59,7 @@ class DualMeshDSARocketConfig extends Config(
   new freechips.rocketchip.subsystem.WithNMemoryChannels(2) ++
     new freechips.rocketchip.subsystem.WithNBanks(2) ++
     new dsagen2.top.config.WithMeshDSA ++
-    new freechips.rocketchip.subsystem.WithNBigCores(2) ++
+    new freechips.rocketchip.subsystem.WithNSmallCores(2) ++
     new chipyard.config.AbstractConfig)
 
 // Triple Rocket+MeshDSA SoC
@@ -67,7 +67,7 @@ class TriMeshDSARocketConfig extends Config(
   new freechips.rocketchip.subsystem.WithNMemoryChannels(4) ++
     new freechips.rocketchip.subsystem.WithNBanks(4) ++
     new dsagen2.top.config.WithMeshDSA ++
-    new freechips.rocketchip.subsystem.WithNBigCores(3) ++
+    new freechips.rocketchip.subsystem.WithNSmallCores(3) ++
     new chipyard.config.AbstractConfig)
 
 // Quad Rocket-MeshDSA SoC
@@ -75,7 +75,7 @@ class QuadMeshDSARocketConfig extends Config(
   new freechips.rocketchip.subsystem.WithNMemoryChannels(4) ++
     new freechips.rocketchip.subsystem.WithNBanks(4) ++
     new dsagen2.top.config.WithMeshDSA ++
-    new freechips.rocketchip.subsystem.WithNBigCores(4) ++
+    new freechips.rocketchip.subsystem.WithNSmallCores(4) ++
     new chipyard.config.AbstractConfig)
 
 /* ---------------- DSAGen2 Configuration End --------------------*/
