@@ -92,8 +92,8 @@ class QuadMeshDSARocketVCU118Config extends Config(
 
 class MeshDSARocketVCU118Config100MHz extends Config(new WithFPGAFreq100MHz ++ new MeshDSARocketVCU118Config)
 class MeshDSARocketVCU118Config75MHz extends Config(new WithFPGAFreq75MHz ++ new MeshDSARocketVCU118Config)
-class DualDSARocketVCU118Config100MHz extends Config(new WithFPGAFreq100MHz ++ new DualMeshDSARocketVCU118Config)
-class DualDSARocketVCU118Config75MHz extends Config(new WithFPGAFreq75MHz ++ new DualMeshDSARocketVCU118Config)
+class DualMeshDSARocketVCU118Config100MHz extends Config(new WithFPGAFreq100MHz ++ new DualMeshDSARocketVCU118Config)
+class DualMeshDSARocketVCU118Config75MHz extends Config(new WithFPGAFreq75MHz ++ new DualMeshDSARocketVCU118Config)
 class QuadMeshDSARocketVCU118Config100MHz extends Config(new WithFPGAFreq100MHz ++ new QuadMeshDSARocketVCU118Config)
 class QuadMeshDSARocketVCU118Config75MHz extends Config(new WithFPGAFreq75MHz ++ new QuadMeshDSARocketVCU118Config)
 
