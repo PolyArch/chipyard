@@ -1,5 +1,6 @@
 package chipyard
 
+import dsagen2.top.config.WithMesh4Gemm
 import freechips.rocketchip.config.Config
 import freechips.rocketchip.diplomacy.AsynchronousCrossing
 
@@ -83,6 +84,14 @@ class OctaMeshDSARocketConfig extends Config(
   new freechips.rocketchip.subsystem.WithNMemoryChannels(4) ++
     new freechips.rocketchip.subsystem.WithNBanks(8) ++
     new dsagen2.top.config.WithMeshDSA ++
+    new freechips.rocketchip.subsystem.WithNBigCores(8) ++
+    new chipyard.config.AbstractConfig)
+
+// Octa Rocket-MeshDSA for GEMM SoC
+class OctaMeshGemmRocketConfig extends Config(
+  new freechips.rocketchip.subsystem.WithNMemoryChannels(4) ++
+    new freechips.rocketchip.subsystem.WithNBanks(8) ++
+    new dsagen2.top.config.WithMesh4Gemm ++
     new freechips.rocketchip.subsystem.WithNBigCores(8) ++
     new chipyard.config.AbstractConfig)
 
