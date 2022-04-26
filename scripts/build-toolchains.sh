@@ -138,10 +138,7 @@ else
     esac
 
     module_prepare riscv-gnu-toolchain qemu
-    make COMPAT=1 -C $SS/dsa-riscv-ext
-    module_build riscv-gnu-toolchain \
-      --enable-multilib              \
-      --prefix="${RISCV}" --with-cmodel=medany ${ARCH:+--with-arch=${ARCH}}
+    module_build riscv-gnu-toolchain --prefix="${RISCV}" --with-cmodel=medany ${ARCH:+--with-arch=${ARCH}}
     echo '==>  Building GNU/Linux toolchain'
     module_make riscv-gnu-toolchain linux
 fi
