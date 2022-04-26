@@ -55,6 +55,12 @@ class MeshDSARocketConfig extends Config(
     new freechips.rocketchip.subsystem.WithNBigCores(1) ++
     new chipyard.config.AbstractConfig)
 
+// Mesh DSA with Dual SPM
+class MeshDSADualSPMRocketConfig extends Config(
+  new dsagen2.top.config.WithMeshDSADualSPM ++
+    new freechips.rocketchip.subsystem.WithNBigCores(1) ++
+    new chipyard.config.AbstractConfig)
+
 // Dual Rocket+MeshDSA SoC
 class DualMeshDSARocketConfig extends Config(
   new freechips.rocketchip.subsystem.WithNMemoryChannels(2) ++
