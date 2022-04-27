@@ -46,6 +46,6 @@ class DromajoBoomConfig extends Config(
 
 // BOOM + Mesh DSA
 class MeshDSABoomConfig extends Config(
-  new dsagen2.top.config.WithMeshDSA ++
-    new boom.common.WithNLargeBooms(1) ++                          // large boom config
+  new boom.common.WithNLargeBooms(1) ++                          // large boom config
+    new dsagen2.top.config.WithMeshDSA ++
     new chipyard.config.AbstractConfig)
