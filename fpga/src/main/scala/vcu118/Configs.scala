@@ -1,23 +1,18 @@
 package chipyard.fpga.vcu118
 
 import sys.process._
-
 import freechips.rocketchip.config.{Config, Parameters}
-import freechips.rocketchip.subsystem.{SystemBusKey, PeripheryBusKey, ControlBusKey, ExtMem}
+import freechips.rocketchip.subsystem.{ControlBusKey, ExtMem, PeripheryBusKey, SystemBusKey}
 import freechips.rocketchip.devices.debug.{DebugModuleKey, ExportDebug, JTAG}
-import freechips.rocketchip.devices.tilelink.{DevNullParams, BootROMLocated}
-import freechips.rocketchip.diplomacy.{DTSModel, DTSTimebase, RegionType, AddressSet}
-import freechips.rocketchip.tile.{XLen}
-
+import freechips.rocketchip.devices.tilelink.{BootROMLocated, DevNullParams}
+import freechips.rocketchip.diplomacy.{AddressSet, DTSModel, DTSTimebase, RegionType}
+import freechips.rocketchip.tile.XLen
 import sifive.blocks.devices.spi.{PeripherySPIKey, SPIParams}
 import sifive.blocks.devices.uart.{PeripheryUARTKey, UARTParams}
-
-import sifive.fpgashells.shell.{DesignKey}
-import sifive.fpgashells.shell.xilinx.{VCU118ShellPMOD, VCU118DDRSize}
-
-import testchipip.{SerialTLKey}
-
-import chipyard.{BuildSystem, ExtTLMem, DefaultClockFrequencyKey}
+import sifive.fpgashells.shell.DesignKey
+import sifive.fpgashells.shell.xilinx.{VCU118DDRSize, VCU118ShellPMOD}
+import testchipip.SerialTLKey
+import chipyard.{BuildSystem, DSAGenVisionRocketConfig, DefaultClockFrequencyKey, ExtTLMem}
 
 class WithDefaultPeripherals extends Config((site, here, up) => {
   case PeripheryUARTKey => List(UARTParams(address = BigInt(0x64000000L)))
@@ -90,12 +85,20 @@ class QuadMeshDSARocketVCU118Config extends Config(
     new chipyard.QuadMeshDSARocketConfig
 )
 
+class DSAGenVisionVCU118Config extends Config(
+  new WithVCU118Tweaks ++
+    new dsagen2.comp.impl.ip.WithDSAOverlay ++
+    new chipyard.DSAGenVisionRocketConfig
+)
+
 class MeshDSARocketVCU118Config100MHz extends Config(new WithFPGAFreq100MHz ++ new MeshDSARocketVCU118Config)
 class MeshDSARocketVCU118Config75MHz extends Config(new WithFPGAFreq75MHz ++ new MeshDSARocketVCU118Config)
 class DualMeshDSARocketVCU118Config100MHz extends Config(new WithFPGAFreq100MHz ++ new DualMeshDSARocketVCU118Config)
 class DualMeshDSARocketVCU118Config75MHz extends Config(new WithFPGAFreq75MHz ++ new DualMeshDSARocketVCU118Config)
 class QuadMeshDSARocketVCU118Config100MHz extends Config(new WithFPGAFreq100MHz ++ new QuadMeshDSARocketVCU118Config)
 class QuadMeshDSARocketVCU118Config75MHz extends Config(new WithFPGAFreq75MHz ++ new QuadMeshDSARocketVCU118Config)
+
+class MeshDSAGenVisionVCU118Config100MHz extends Config(new WithFPGAFreq100MHz ++ new DSAGenVisionVCU118Config)
 
 /* ---------- DSAGen2 on VCU 118 End ---------- */
 

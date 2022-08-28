@@ -109,6 +109,14 @@ class HexaMeshDSARocketConfig extends Config(
     new freechips.rocketchip.subsystem.WithNMemoryChannels(4) ++
     new chipyard.config.AbstractConfig)
 
+// DSE Generated ADG for Vision
+class DSAGenVisionRocketConfig extends Config(
+  new freechips.rocketchip.subsystem.WithNBanks(16) ++
+    new freechips.rocketchip.subsystem.WithNSmallCores(13) ++
+    new dsagen2.top.config.WithDSAGenFromADG("/home/sihao/repo/ss-stack/chipyard/generators/dsagen2/adg/dse/vision.json") ++
+    new chipyard.config.AbstractConfig
+)
+
 /* ---------------- DSAGen2 Configuration End --------------------*/
 
 class FPGemminiRocketConfig extends Config(
