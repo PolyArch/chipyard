@@ -142,4 +142,4 @@
 	url = https://github.com/ucb-bar/rocket-dsp-utils
 [submodule "generators/dsagen2"]
 	path = generators/dsagen2
-	url = https://github.com/SihaoLiu/dsagen2.git
+	url = https://github.com/PolyArch/dsagen2.git
