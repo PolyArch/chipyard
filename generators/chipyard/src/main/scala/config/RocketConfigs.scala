@@ -50,6 +50,12 @@ class DevDSARocketConfig extends Config(
     new chipyard.config.AbstractConfig)
 
 // Mesh DSA
+class DemoDSARocketConfig extends Config(
+  new freechips.rocketchip.subsystem.WithNBigCores(1) ++
+    new dsagen2.top.config.WithDemoDSA ++
+    new chipyard.config.AbstractConfig)
+
+// Mesh DSA
 class MeshDSARocketConfig extends Config(
   new freechips.rocketchip.subsystem.WithNBigCores(1) ++
     new dsagen2.top.config.WithMeshDSA ++
